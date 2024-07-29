@@ -1,5 +1,13 @@
 terraform {
-  required_providers {
+
+  cloud {
+    organization = "vfale_organization"
+    workspaces {
+      name = "vfale_workspace"
+    }
+  } 
+
+ required_providers {
     aws = {
       source  = "hashicorp/aws"
       version = "~> 4.16"
