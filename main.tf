@@ -2,12 +2,16 @@ terraform {
 
   cloud {
     organization = "vfale_organization"
+    # Description: The organization name as per the remote Terraform Cloud setup
+
     workspaces {
       name = "vfale_workspace"
-    }
-  } 
+      # Description: Create the workspace in the remote Terraform Cloud
 
- required_providers {
+    }
+  }
+
+  required_providers {
     aws = {
       source  = "hashicorp/aws"
       version = "~> 4.16"
@@ -18,7 +22,7 @@ terraform {
 }
 
 provider "aws" {
-  region  = "ap-south-1"
+  region = "ap-south-1"
 }
 
 resource "aws_instance" "app_server" {
@@ -26,7 +30,7 @@ resource "aws_instance" "app_server" {
   instance_type = "t2.micro"
 
   tags = {
-    Name = "AppServerInstanceTerraform"
+    Name = "AppServerInstanceTerraform_o.1"
   }
 }
 
